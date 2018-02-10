@@ -6,7 +6,7 @@
   "bin": "index.js",
   "repository": "github:featurist/create-hyperdom-app",
   "scripts": {
-    "test": "electron-mocha --renderer"
+    "test": "electron-mocha --renderer test/**/*Spec.js"
   },
   "author": "Artem Avetisyan",
   "license": "MIT",
