@@ -1,6 +1,6 @@
 # create-hyperdom-app
 
-[Hyperdom](https://github.com/featurist/hyperdom) starter kit. With [exress](https://expressjs.com/) backend and [webpack](https://webpack.js.org/) assets management.
+[Hyperdom](https://github.com/featurist/hyperdom) starter kit. With [express](https://expressjs.com/) backend and [webpack](https://webpack.js.org/) assets management.
 
 ## Usage
 
