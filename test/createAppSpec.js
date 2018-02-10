@@ -14,9 +14,12 @@ describe('yarn create-hyperdom-app', function () {
 
   this.timeout(31000)
 
-  beforeEach(function () {
+  beforeEach(async function () {
     tmpDir = new TmpDir()
     sh = new Shell({cwd: tmpDir.path})
+    await sh(`${yarnCreateHyperdomApp} hell-o-world`)
+    sh.cd('hell-o-world')
+    await sh('yarn install')
   })
 
   afterEach(async function () {
@@ -25,10 +28,17 @@ describe('yarn create-hyperdom-app', function () {
   })
 
   it('creates a skeleton app that can be started with "yarn dev"', async function () {
-    await sh(`${yarnCreateHyperdomApp} hell-o-world`)
-    sh.cd('hell-o-world')
-    await sh('yarn install')
     pid = await sh('yarn dev', {bg: true})
+
+    await retry(async () => {
+      const page = browse('http://localhost:5000')
+      await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
+    }, {timeout: 30000})
+  })
+
+  it('has production mode', async function () {
+    await sh('yarn build')
+    pid = await sh('yarn start', {bg: true})
 
     await retry(async () => {
       const page = browse('http://localhost:5000')

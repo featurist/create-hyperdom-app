@@ -29,3 +29,16 @@ Start the server on `http://localhost:5000`. It's going to watch and recompile b
 yarn build # compiles browser assets
 yarn start
 ```
+## Contributing
+
+Runs tests:
+
+```
+yarn test
+```
+
+Run tests with browser window:
+
+```
+yarn test --debug
+```
