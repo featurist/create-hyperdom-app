@@ -31,7 +31,7 @@ yarn start
 ```
 ## Contributing
 
-Runs tests:
+Run tests:
 
 ```
 yarn test
