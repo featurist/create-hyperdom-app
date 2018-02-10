@@ -20,7 +20,7 @@ describe('yarn create-hyperdom-app', function () {
   })
 
   afterEach(async function () {
-    await sh(`kill -9 $(pgrep node | awk '$1>${pid}')`)
+    await sh(`kill $(pgrep node | awk '$1>${pid}')`)
     await tmpDir.remove()
   })
 
