@@ -5,7 +5,7 @@ const Shell = require('./shell')
 const TmpDir = require('./tmpDir')
 const {bin} = require('../package.json')
 
-const yarnCreateHyperdomApp = 'node ' + path.resolve(process.cwd(), bin)
+const yarnCreateHyperdomApp = path.resolve(process.cwd(), bin)
 
 describe('yarn create-hyperdom-app', function () {
   let sh, tmpDir, pid
