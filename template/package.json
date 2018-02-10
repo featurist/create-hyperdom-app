@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "start": "node ./server/app.js",
+    "dev": "nf start",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "css-loader": "*",
+    "express": "*",
+    "hyperdom": "*",
+    "morgan": "*",
+    "style-loader": "*",
+    "webpack": "*"
+  },
+  "devDependencies": {
+    "foreman": "*",
+    "nodemon": "*"
+  }
+}

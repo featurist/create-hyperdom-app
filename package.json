@@ -1,0 +1,31 @@
+{
+  "name": "create-hyperdom-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "electron-mocha --renderer"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-monkey": "^2.7.0",
+    "chai": "^4.1.2",
+    "electron": "^1.8.2",
+    "electron-mocha": "^5.0.0",
+    "fs-extra": "^5.0.0",
+    "mocha": "^5.0.0",
+    "standard": "^10.0.3",
+    "trytryagain": "^1.2.0"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "yargs": "^11.0.0"
+  }
+}
