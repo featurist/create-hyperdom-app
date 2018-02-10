@@ -1,13 +1,13 @@
 {
   "name": "create-hyperdom-app",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "hyperdom starter kit",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
     "test": "electron-mocha --renderer"
   },
-  "author": "",
+  "author": "Artem Avetisyan",
   "license": "MIT",
   "devDependencies": {
     "browser-monkey": "^2.7.0",

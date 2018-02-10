@@ -1,13 +1,13 @@
-const fs = require('fs-extra')
-const path = require('path')
-const {_: [appName]} = require('yargs')
+var fs = require('fs-extra')
+var path = require('path')
+var argv = require('yargs')
   .demandCommand(1)
   .argv
 
-const appDir = path.resolve(process.cwd(), appName)
+var appDir = path.resolve(process.cwd(), argv._[0])
 fs.ensureDirSync(appDir)
 
-const templateDir = path.resolve(__dirname, 'template')
+var templateDir = path.resolve(__dirname, 'template')
 fs.copySync(templateDir, appDir)
 
 console.info('Done!')
