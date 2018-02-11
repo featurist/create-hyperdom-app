@@ -4,9 +4,7 @@ const h = hyperdom.html
 
 class App {
   render () {
-    return h('body',
-      h('h1.hello', 'Hello from Hyperdom!')
-    )
+    return h('h1.hello', 'Hello from Hyperdom!')
   }
 }
 
