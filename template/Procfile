@@ -1,2 +1,2 @@
 web: nodemon ./server/app.js
-watch: yarn build --watch
+watch: yarn watch-assets

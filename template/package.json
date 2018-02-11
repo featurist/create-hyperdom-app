@@ -2,15 +2,18 @@
   "scripts": {
     "start": "node ./server/app.js",
     "dev": "nf start",
-    "build": "webpack"
+    "build": "webpack --config webpack.prod.js",
+    "watch-assets": "webpack --config webpack.dev.js --watch"
   },
   "dependencies": {
+    "babel-minify-webpack-plugin": "*",
     "css-loader": "*",
     "express": "*",
     "hyperdom": "*",
     "morgan": "*",
     "style-loader": "*",
-    "webpack": "*"
+    "webpack": "*",
+    "webpack-merge": "*"
   },
   "devDependencies": {
     "foreman": "*",
