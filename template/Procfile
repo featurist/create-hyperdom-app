@@ -1,2 +1,2 @@
-web: nodemon ./server/app.js
-watch: yarn watch-assets
+web: npm start
+watch: npm run watch-assets

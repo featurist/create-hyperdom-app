@@ -29,6 +29,9 @@ Start the server on `http://localhost:5000`. It's going to watch and recompile b
 yarn build # compiles browser assets
 yarn start
 ```
+
+The app is ready to be pushed to [heroku](https://www.heroku.com/).
+
 ## Contributing
 
 Run tests:
