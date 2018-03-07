@@ -5,6 +5,8 @@ const Shell = require('./shell')
 const TmpDir = require('./tmpDir')
 const {bin} = require('../package.json')
 
+const timeout = Number(process.env.TIMEOUT || 30000)
+
 const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
   ? 'yarn create hyperdom-app'
   : path.resolve(process.cwd(), bin)
@@ -12,7 +14,7 @@ const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
 describe('yarn create-hyperdom-app', function () {
   let sh, tmpDir, pid
 
-  this.timeout(31000)
+  this.timeout(timeout + 2000)
 
   beforeEach(async function () {
     tmpDir = new TmpDir()
@@ -33,7 +35,7 @@ describe('yarn create-hyperdom-app', function () {
     await retry(async () => {
       const page = browse('http://localhost:5000')
       await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
-    }, {timeout: 30000})
+    }, {timeout})
   })
 
   it('has production mode', async function () {
@@ -43,6 +45,6 @@ describe('yarn create-hyperdom-app', function () {
     await retry(async () => {
       const page = browse('http://localhost:5000')
       await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
-    }, {timeout: 30000})
+    }, {timeout})
   })
 })
