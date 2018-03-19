@@ -8,7 +8,7 @@ module.exports = function () {
   app.use('/dist/', express.static(`${process.cwd()}/browser/dist/`))
 
   app.get('/', (req, res) => {
-    res.set({'content-type': 'text/html'})
+    res.type('html')
     res.send(
       `
 <!DOCTYPE html>
