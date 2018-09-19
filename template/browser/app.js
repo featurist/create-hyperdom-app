@@ -1,5 +1,5 @@
-require('./style.css')
-const hyperdom = require('hyperdom')
+import './style.css'
+import * as hyperdom from 'hyperdom'
 const h = hyperdom.html
 
 class App {

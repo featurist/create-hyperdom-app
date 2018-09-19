@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "if [ \"$NODE_ENV\" = 'production' ]; then node ./server/app.js; else nodemon --ignore **/dist ./server/app.js; fi",
+    "start": "./scripts/start.sh",
     "dev": "nf start",
     "build": "webpack --config webpack.prod.js",
     "heroku-postbuild": "npm run build",
