@@ -1,15 +1,21 @@
 #!/usr/bin/env node
 
-var fs = require('fs-extra')
-var path = require('path')
-var argv = require('yargs')
+const fs = require('fs-extra')
+const path = require('path')
+const argv = require('yargs')
+  .boolean('jsx')
   .demandCommand(1)
   .argv
 
-var appDir = path.resolve(process.cwd(), argv._[0])
+const appDir = path.resolve(process.cwd(), argv._[0])
 fs.ensureDirSync(appDir)
 
-var templateDir = path.resolve(__dirname, 'template')
+let templateDir
+if (argv.jsx) {
+  templateDir = path.resolve(__dirname, 'template', 'js', 'jsx')
+} else {
+  templateDir = path.resolve(__dirname, 'template', 'js', 'js')
+}
 fs.copySync(templateDir, appDir)
 
 console.info('Done!')

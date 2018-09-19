@@ -15,6 +15,8 @@ cd myApp
 yarn install # npm install
 ```
 
+Add `--jsx` flag if you prefer using jsx.
+
 ### Development
 
 ```bash

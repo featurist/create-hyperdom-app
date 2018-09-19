@@ -1,0 +1,28 @@
+{
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "dev": "nf start",
+    "build": "webpack --config webpack.prod.js",
+    "heroku-postbuild": "npm run build",
+    "watch-assets": "webpack --config webpack.dev.js --watch"
+  },
+  "dependencies": {
+    "babel-minify-webpack-plugin": "*",
+    "css-loader": "*",
+    "express": "*",
+    "hyperdom": "*",
+    "morgan": "*",
+    "style-loader": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-merge": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-jsx-hyperdom-binding": "https://github.com/featurist/babel-plugin-transform-jsx-hyperdom-binding#next",
+    "foreman": "*",
+    "nodemon": "*"
+  }
+}

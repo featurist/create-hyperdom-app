@@ -1,6 +1,7 @@
 package-lock.json
 node_modules
-template/yarn.lock
-template/browser/dist/bundle.js
+template/**/yarn.lock
+template/**/browser/dist/
+.DS_Store
 .envrc
 bin/
