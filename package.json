@@ -11,21 +11,22 @@
   "author": "Artem Avetisyan",
   "license": "MIT",
   "devDependencies": {
-    "browser-monkey": "^2.7.0",
+    "browser-monkey": "^2.7.2",
     "chai": "^4.1.2",
-    "electron": "^1.8.2",
-    "electron-mocha": "^6.0.0",
-    "standard": "^10.0.3",
+    "electron": "^3.0.0",
+    "electron-mocha": "^6.0.4",
+    "eslint": "^5.6.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "trytryagain": "^1.2.0"
   },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  },
   "dependencies": {
-    "debug": "^3.1.0",
-    "fs-extra": "^5.0.0",
-    "yargs": "^11.0.0"
+    "debug": "^4.0.1",
+    "fs-extra": "^7.0.0",
+    "yargs": "^12.0.2"
   }
 }
