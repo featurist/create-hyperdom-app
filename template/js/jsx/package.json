@@ -15,13 +15,13 @@
     "style-loader": "*",
     "webpack": "*",
     "webpack-cli": "*",
-    "webpack-merge": "*"
-  },
-  "devDependencies": {
+    "webpack-merge": "*",
     "@babel/core": "*",
     "@babel/plugin-transform-react-jsx": "*",
     "babel-loader": "*",
-    "babel-plugin-transform-jsx-hyperdom-binding": "*",
+    "babel-plugin-transform-jsx-hyperdom-binding": "*"
+  },
+  "devDependencies": {
     "foreman": "*",
     "nodemon": "*"
   }
