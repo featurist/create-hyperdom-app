@@ -18,10 +18,10 @@
     "webpack-merge": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "@babel/plugin-transform-react-jsx": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "babel-plugin-transform-jsx-hyperdom-binding": "https://github.com/featurist/babel-plugin-transform-jsx-hyperdom-binding#next",
+    "@babel/core": "*",
+    "@babel/plugin-transform-react-jsx": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-jsx-hyperdom-binding": "*",
     "foreman": "*",
     "nodemon": "*"
   }
