@@ -25,6 +25,8 @@ yarn dev
 
 Start the server on `http://localhost:5000`. It's going to watch and recompile browser assets on changes as well as watch and restart server app on server side changes.
 
+There is also `yarn lint` based on `eslint:recommended` and with few extras added.
+
 ### Production
 
 ```bash

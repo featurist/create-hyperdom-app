@@ -2,6 +2,7 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
+    "lint": "eslint $(git ls-files | grep -E '\\.js$')",
     "build": "webpack --config webpack.prod.js",
     "heroku-postbuild": "npm run build",
     "watch-assets": "webpack --config webpack.dev.js --watch"
@@ -18,6 +19,10 @@
     "webpack-merge": "*"
   },
   "devDependencies": {
+    "eslint": "*",
+    "eslint-plugin-filenames": "*",
+    "eslint-plugin-hyperdom": "*",
+    "eslint-plugin-import": "*",
     "foreman": "*",
     "nodemon": "*"
   }
