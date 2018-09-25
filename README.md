@@ -49,3 +49,5 @@ Run tests with browser window:
 ```
 yarn test --debug
 ```
+
+Tests run `yarn install` which is pretty slow. Set `CACHE_NODE_MODULES=1` when running `yarn test` to speed things up a bit.

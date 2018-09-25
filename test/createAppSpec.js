@@ -4,7 +4,7 @@ const retry = require('trytryagain')
 const Shell = require('./shell')
 const TmpDir = require('./tmpDir')
 const {bin} = require('../package.json')
-const fs = require('fs').promises
+const {promises: fs, existsSync: exists} = require('fs')
 const {expect} = require('chai')
 
 const timeout = Number(process.env.TIMEOUT || 40000)
@@ -26,6 +26,9 @@ describe('yarn create hyperdom-app', function () {
   })
 
   function describeCreateHyperdomApp (opts = [], optsTests = () => {}) {
+    const cacheKey = opts.length ? opts.join('_') : 'default'
+    const cacheDir = `${__dirname}/cached_node_modules/${cacheKey}`
+
     describe(opts.length ? `with opts: "${opts.join(' ')}"` : 'with default options', function () {
       before(async () => {
         tmpDir = new TmpDir()
@@ -39,7 +42,17 @@ describe('yarn create hyperdom-app', function () {
         await sh('git init')
         await sh('git add .')
 
-        await sh('yarn install')
+        if (process.env.CACHE_NODE_MODULES) {
+          if (exists(cacheDir)) {
+            await sh(`cp -R ${cacheDir}/node_modules ./node_modules`)
+          } else {
+            await sh('yarn install')
+            await sh(`mkdir -p ${cacheDir}`)
+            await sh(`cp -R ./node_modules ${cacheDir}`)
+          }
+        } else {
+          await sh('yarn install')
+        }
       })
 
       after(async () => {
