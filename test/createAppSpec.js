@@ -13,10 +13,16 @@ const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
   ? 'yarn create hyperdom-app'
   : path.resolve(process.cwd(), bin)
 
+async function wait (ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })
+}
+
 describe('yarn create hyperdom-app', function () {
   let sh, tmpDir, pid
 
-  this.timeout(timeout)
+  this.timeout(timeout + 5000)
 
   afterEach(async function () {
     if (pid) {
@@ -41,6 +47,7 @@ describe('yarn create hyperdom-app', function () {
         // adding to git so that `yarn lint` can pick up files to lint
         await sh('git init')
         await sh('git add .')
+        await sh('git commit -m "init"')
 
         if (process.env.CACHE_NODE_MODULES) {
           if (exists(cacheDir)) {
@@ -59,6 +66,10 @@ describe('yarn create hyperdom-app', function () {
         await tmpDir.remove()
       })
 
+      afterEach(async function () {
+        await sh('git reset --hard HEAD')
+      })
+
       it('creates a skeleton app that can be started with "yarn dev"', async function () {
         pid = await sh('yarn dev', {bg: true})
 
@@ -68,9 +79,26 @@ describe('yarn create hyperdom-app', function () {
         }, {timeout})
       })
 
+      it('reloads browser when frontend code changes', async function () {
+        pid = await sh('yarn dev', {bg: true})
+
+        let page
+        await retry(async () => {
+          page = browse('http://localhost:5000')
+          await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
+        }, {timeout})
+
+        await wait(1000)
+        await sh("perl -pi -e 's/dom!/doom!/' browser/app.js*")
+
+        await retry(async () => {
+          await page.shouldHave({text: 'HELLO FROM HYPERDOOM!'})
+        }, {timeout})
+      })
+
       it('has production mode', async function () {
-        await sh('yarn build')
-        pid = await sh('yarn start', {bg: true})
+        await sh('NODE_ENV=production yarn build')
+        pid = await sh('NODE_ENV=production yarn start', {bg: true})
 
         await retry(async () => {
           const page = browse('http://localhost:5000')

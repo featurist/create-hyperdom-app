@@ -1,3 +1,4 @@
+const http = require('http')
 const express = require('express')
 const morgan = require('morgan')
 
@@ -17,7 +18,7 @@ module.exports = function () {
     <title>My Hyperdom App</title>
   </head>
   <body>
-    <script src="/dist/bundle.js"></script>
+    <script type="text/javascript" src="/dist/bundle.js"></script>
   </body>
 </html>
       `
@@ -29,7 +30,15 @@ module.exports = function () {
 
 if (!module.parent) {
   const port = process.env.PORT || 5000
-  module.exports().listen(port, () => {
+  const app = module.exports()
+  const server = http.createServer(app)
+
+  if (process.env.NODE_ENV !== 'production') {
+    const LiveReload = require('./liveReload')
+    new LiveReload({server}).listen()
+  }
+
+  server.listen(port, () => {
     console.info(`listening on http://localhost:${port}`)
   })
 }

@@ -23,11 +23,18 @@ Add `--jsx` flag if you prefer using jsx.
 yarn dev
 ```
 
-Start the server on `http://localhost:5000`. It's going to watch and recompile browser assets on changes as well as watch and restart server app on server side changes.
+Starts the server on `http://localhost:5000`. This features:
+
+- watch and recompile frontend assets on browser code changes
+- reload browser on frontend assets change
+- watch and restart backend on server side code changes
+- debug server side in Chrome (via `chrome://inspect`)
 
 There is also `yarn lint` based on `eslint:recommended` and with few extras added.
 
 ### Production
+
+Make sure `NODE_ENV` is set to `production` when both building assets and starting the server.
 
 ```bash
 yarn build # compiles browser assets

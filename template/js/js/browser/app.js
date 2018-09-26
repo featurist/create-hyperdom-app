@@ -1,5 +1,6 @@
 import './style.css'
 import * as hyperdom from 'hyperdom'
+import './liveReload'
 const h = hyperdom.html
 
 class App {

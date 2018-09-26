@@ -19,11 +19,13 @@
     "webpack-merge": "*"
   },
   "devDependencies": {
+    "chokidar": "*",
     "eslint": "*",
     "eslint-plugin-filenames": "*",
     "eslint-plugin-hyperdom": "*",
     "eslint-plugin-import": "*",
     "foreman": "*",
-    "nodemon": "*"
+    "nodemon": "*",
+    "ws": "*"
   }
 }
