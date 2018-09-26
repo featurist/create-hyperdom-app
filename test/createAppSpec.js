@@ -46,6 +46,8 @@ describe('yarn create hyperdom-app', function () {
         sh.cd('hell-o-world')
         // adding to git so that `yarn lint` can pick up files to lint
         await sh('git init')
+        await sh('git config user.email "me@example.com"')
+        await sh('git config user.name "me"')
         await sh('git add .')
         await sh('git commit -m "init"')
 
