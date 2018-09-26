@@ -98,18 +98,27 @@ describe('yarn create hyperdom-app', function () {
         }, {timeout})
       })
 
-      it('has production mode', async function () {
-        await sh('NODE_ENV=production yarn build')
-        pid = await sh('NODE_ENV=production yarn start', {bg: true})
-
-        await retry(async () => {
-          const page = browse('http://localhost:5000')
-          await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
-        }, {timeout})
-      })
-
       it('lints', async function () {
         await sh('yarn lint')
+      })
+
+      context('production', function () {
+        before(async function () {
+          await sh('yarn install --production')
+          await sh('NODE_ENV=production yarn build')
+        })
+        after(async function () {
+          await sh('yarn install')
+        })
+
+        it('runs in production mode', async function () {
+          pid = await sh('NODE_ENV=production yarn start', {bg: true})
+
+          await retry(async () => {
+            const page = browse('http://localhost:5000')
+            await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
+          }, {timeout})
+        })
       })
 
       optsTests({sh})
