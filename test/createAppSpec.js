@@ -90,7 +90,7 @@ describe('yarn create hyperdom-app', function () {
           await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
         }, {timeout})
 
-        await wait(1000)
+        await wait(2000)
         await sh("perl -pi -e 's/dom!/doom!/' browser/app.js*")
 
         await retry(async () => {
