@@ -12,6 +12,7 @@ fs.ensureDirSync(appDir)
 
 const sharedTemplateDir = path.resolve(__dirname, 'template', 'shared')
 fs.copySync(sharedTemplateDir, appDir)
+fs.renameSync(`${appDir}/_gitignore`, `${appDir}/.gitignore`)
 
 let templateDir
 if (argv.jsx) {
