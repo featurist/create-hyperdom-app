@@ -25,7 +25,7 @@ yarn install # npm install
 
 #### `yarn dev`
 
-Starts the server on `http://localhost:5000`. Also it is going to:
+Starts the server on `http://localhost:5000`. This is going to:
 
 - watch and recompile frontend assets on browser code changes
 - reload browser on frontend assets change
