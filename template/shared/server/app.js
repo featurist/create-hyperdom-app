@@ -18,7 +18,8 @@ module.exports = function () {
     <title>My Hyperdom App</title>
   </head>
   <body>
-    <script type="text/javascript" src="/dist/bundle.js"></script>
+    <script type="text/javascript" src="/dist/app.bundle.js"></script>
+    ${process.env.NODE_ENV !== 'production' ? '<script type="text/javascript" src="/dist/liveReload.bundle.js"></script>' : ''}
   </body>
 </html>
       `

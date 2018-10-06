@@ -2,9 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './browser/app.jsx',
+  entry: {
+    app: './browser/app.jsx',
+    liveReload: './browser/liveReload.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'browser', 'dist')
   },
   plugins: [
