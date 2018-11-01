@@ -4,6 +4,8 @@ const path = require('path')
 module.exports = {
   entry: {
     app: './browser/app.js',
+    registerServiceWorker: './browser/registerServiceWorker.js',
+    serviceWorker: './browser/serviceWorker.js',
     liveReload: './browser/liveReload.js'
   },
   output: {

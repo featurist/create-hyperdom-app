@@ -2,6 +2,7 @@
 
 const fs = require('fs-extra')
 const path = require('path')
+const {green, cyan} = require('colors/safe')
 const argv = require('yargs')
   .boolean('jsx')
   .demandCommand(1)
@@ -23,4 +24,8 @@ if (argv.jsx) {
 
 fs.copySync(templateDir, appDir)
 
-console.info('Done!')
+console.info('')
+console.info(green.bold('Success!'), cyan('Get started:'))
+console.info('')
+console.info(`  cd ${appDir} && yarn install`)
+console.info('')

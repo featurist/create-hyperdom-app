@@ -7,6 +7,7 @@
   "plugins": ["mocha"],
   "env": {
     "node": true,
+    "serviceworker": true,
     "mocha": true
   }
 }

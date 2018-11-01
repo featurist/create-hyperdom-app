@@ -4,6 +4,8 @@ const webpack = require('webpack')
 module.exports = {
   entry: {
     app: './browser/app.jsx',
+    registerServiceWorker: './browser/registerServiceWorker.js',
+    serviceWorker: './browser/serviceWorker.js',
     liveReload: './browser/liveReload.js'
   },
   output: {

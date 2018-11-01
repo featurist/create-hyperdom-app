@@ -6,6 +6,9 @@ module.exports = function () {
   const app = express()
   app.use(morgan('dev'))
 
+  app.get('/service-worker.js', (req, res) => {
+    res.sendFile(`${process.cwd()}/browser/dist/serviceWorker.bundle.js`)
+  })
   app.use('/dist/', express.static(`${process.cwd()}/browser/dist/`))
 
   app.get('/', (req, res) => {
@@ -19,6 +22,7 @@ module.exports = function () {
   </head>
   <body>
     <script type="text/javascript" src="/dist/app.bundle.js"></script>
+    <script type="text/javascript" src="/dist/registerServiceWorker.bundle.js"></script>
     ${process.env.NODE_ENV !== 'production' ? '<script type="text/javascript" src="/dist/liveReload.bundle.js"></script>' : ''}
   </body>
 </html>

@@ -2,6 +2,7 @@ package-lock.json
 node_modules
 template/**/yarn.lock
 template/**/browser/dist/
+test/cached_node_modules/
 .DS_Store
 .envrc
 bin/
