@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 module.exports = {
   entry: {
@@ -13,8 +14,9 @@ module.exports = {
     path: path.resolve(__dirname, 'browser', 'dist')
   },
   plugins: [
+    new ManifestPlugin(),
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
+      NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
       DEBUG: false
     })
   ],
