@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "resolveJsonModule": true,
+    "checkJs": true
+  }
+}

@@ -4,6 +4,7 @@ const retry = require('trytryagain')
 const Shell = require('./shell')
 const TmpDir = require('./tmpDir')
 const {bin} = require('../package.json')
+// @ts-ignore
 const {promises: fs, existsSync: exists} = require('fs')
 const {expect} = require('chai')
 
@@ -121,7 +122,7 @@ describe('yarn create hyperdom-app', function () {
         })
       })
 
-      optsTests({sh})
+      optsTests()
     })
   }
 
