@@ -4,7 +4,8 @@ const debug = require('debug')('create-hyperdom-app:shell')
 
 module.exports = class Shell extends Function {
   constructor ({cwd}) {
-    function shell (cmd, {bg} = {}) {
+    super()
+    function shell (cmd, {bg = false} = {}) {
       debug('Running `%s`', cmd)
       return new Promise((resolve, reject) => {
         const sp = spawn(cmd, [], {cwd: shell.cwd, shell: true})
@@ -34,6 +35,7 @@ module.exports = class Shell extends Function {
     }
     Object.setPrototypeOf(shell, Shell.prototype)
     shell.cwd = cwd
+    // @ts-ignore
     return shell
   }
 

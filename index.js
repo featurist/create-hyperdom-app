@@ -25,6 +25,7 @@ if (argv.jsx) {
 fs.copySync(templateDir, appDir)
 
 console.info('')
+// @ts-ignore
 console.info(green.bold('Success!'), cyan('Get started:'))
 console.info('')
 console.info(`  cd ${appDir} && yarn install`)
