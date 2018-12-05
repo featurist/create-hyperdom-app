@@ -9,7 +9,8 @@ const argv = require('yargs')
   .argv
 const Shell = require('./shell')
 
-const appDir = path.resolve(process.cwd(), argv._[0])
+const appName = argv._[0]
+const appDir = path.resolve(process.cwd(), appName)
 fs.ensureDirSync(appDir)
 
 const sharedTemplateDir = path.resolve(__dirname, 'template', 'shared')
@@ -32,7 +33,22 @@ sh('git init').then(() => {
 }).then(() => {
   console.info('')
   // @ts-ignore
-  console.info(green.bold('Success!'), cyan('Get started:'))
+  console.info(green.bold('Success!'), `Created ${appName} at ${appDir}`)
+  console.info('Inside that directory, you can run several commands:')
+  console.info('')
+  console.info('  ', cyan('yarn dev'))
+  console.info('    ', 'Starts the development server with live reload.')
+  console.info('')
+  console.info('  ', cyan('yarn start'))
+  console.info('    ', 'Starts server.')
+  console.info('')
+  console.info('  ', cyan('yarn build'))
+  console.info('    ', 'Bundles the app into static files for production.')
+  console.info('')
+  console.info('  ', cyan('yarn lint'))
+  console.info('    ', 'Lints with eslint.')
+  console.info('')
+  console.info('Get started with:')
   console.info('')
   console.info(`  cd ${appDir} && yarn install`)
   console.info('')
