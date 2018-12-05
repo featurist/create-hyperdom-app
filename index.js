@@ -7,6 +7,7 @@ const argv = require('yargs')
   .boolean('jsx')
   .demandCommand(1)
   .argv
+const Shell = require('./shell')
 
 const appDir = path.resolve(process.cwd(), argv._[0])
 fs.ensureDirSync(appDir)
@@ -24,9 +25,15 @@ if (argv.jsx) {
 
 fs.copySync(templateDir, appDir)
 
-console.info('')
-// @ts-ignore
-console.info(green.bold('Success!'), cyan('Get started:'))
-console.info('')
-console.info(`  cd ${appDir} && yarn install`)
-console.info('')
+const sh = new Shell({cwd: appDir})
+
+sh('git init').then(() => {
+  return sh('git add .')
+}).then(() => {
+  console.info('')
+  // @ts-ignore
+  console.info(green.bold('Success!'), cyan('Get started:'))
+  console.info('')
+  console.info(`  cd ${appDir} && yarn install`)
+  console.info('')
+})
