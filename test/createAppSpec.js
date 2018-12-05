@@ -55,10 +55,12 @@ describe('yarn create hyperdom-app', function () {
         if (process.env.CACHE_NODE_MODULES) {
           if (exists(cacheDir)) {
             await sh(`cp -R ${cacheDir}/node_modules ./node_modules`)
+            await sh(`cp ${cacheDir}/yarn.lock .`)
           } else {
             await sh('yarn install')
             await sh(`mkdir -p ${cacheDir}`)
             await sh(`cp -R ./node_modules ${cacheDir}`)
+            await sh(`cp ./yarn.lock ${cacheDir}`)
           }
         } else {
           await sh('yarn install')
