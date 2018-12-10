@@ -2,6 +2,7 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
+    "test": "yarn electron-mocha -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.js$')",
     "build": "webpack --config webpack.prod.js",
     "heroku-postbuild": "npm run build",
@@ -20,13 +21,20 @@
     "webpack-merge": "*"
   },
   "devDependencies": {
+    "browser-monkey": "*",
+    "chai": "*",
     "chokidar": "*",
+    "css-modules-require-hook": "*",
+    "electron": "*",
+    "electron-mocha": "*",
     "eslint": "*",
     "eslint-plugin-filenames": "*",
     "eslint-plugin-hyperdom": "*",
     "eslint-plugin-import": "*",
     "foreman": "*",
+    "mocha": "*",
     "nodemon": "*",
+    "postcss-url": "*",
     "ws": "*"
   }
 }

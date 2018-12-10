@@ -8,7 +8,7 @@ const {bin} = require('../package.json')
 const {promises: fs, existsSync: exists} = require('fs')
 const {expect} = require('chai')
 
-const timeout = Number(process.env.TIMEOUT || 40000)
+const timeout = Number(process.env.TIMEOUT || 60000)
 
 const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
   ? 'yarn create hyperdom-app'
@@ -98,19 +98,20 @@ describe('yarn create hyperdom-app', function () {
         }, {timeout})
       })
 
+      it('tests', async function () {
+        await sh('yarn test')
+      })
+
       it('lints', async function () {
         await sh('yarn lint')
       })
 
+      // 'production' should be the last context (because it removes dev npm modules)
       context('production', function () {
         before(async function () {
           await sh('yarn install --production')
           await sh('NODE_ENV=production yarn build')
         })
-        after(async function () {
-          await sh('yarn install')
-        })
-
         it('runs in production mode', async function () {
           pid = await sh('NODE_ENV=production yarn start', {bg: true})
 
@@ -129,7 +130,7 @@ describe('yarn create hyperdom-app', function () {
   describeCreateHyperdomApp(['--jsx'], function () {
     it('generates jsx', async function () {
       const index = await fs.readFile(`${sh.cwd}/browser/app.jsx`, 'utf-8')
-      expect(index).to.include('return <h1 class="hello">Hello from Hyperdom!</h1>')
+      expect(index).to.include('return <h1 class={hello}>Hello from Hyperdom!</h1>')
     })
   })
 })

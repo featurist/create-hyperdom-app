@@ -9,12 +9,13 @@
     "hyperdom"
   ],
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 2017,
     "sourceType": "module"
   },
   "env": {
     "browser": true,
     "node": true,
+    "mocha": true,
     "serviceworker": true,
     "es6": true
   },

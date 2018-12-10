@@ -1,10 +1,8 @@
-import './style.css'
-import * as hyperdom from 'hyperdom'
+const hyperdom = require('hyperdom')
+const {hello} = require('./style.css')
 
-class App {
+module.exports = class App {
   render () {
-    return <h1 class="hello">Hello from Hyperdom!</h1>
+    return <h1 class={hello}>Hello from Hyperdom!</h1>
   }
 }
-
-hyperdom.append(document.body, new App())
