@@ -34,7 +34,11 @@ Starts the server on `http://localhost:5000`. This is going to:
 
 #### `yarn lint`
 
-Lint js code based on `eslint:recommended` with few extras added.
+Lints js code based on `eslint:recommended` with few handy extras.
+
+#### `yarn test`
+
+Runs browser tests headlessly in electron. Add `--interactive` to see the browser.
 
 ### Production
 

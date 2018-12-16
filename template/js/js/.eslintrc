@@ -23,7 +23,6 @@
     "no-console": ["error", {
       "allow": ["info", "warn", "error"]
     }],
-    "no-debugger": "error",
     "filenames/match-exported": [2, "camel"],
     "import/no-unresolved": [2, {
       "caseSensitive": true,

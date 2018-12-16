@@ -2,7 +2,7 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
-    "test": "yarn electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
+    "test": "./node_modules/.bin/electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.jsx?$')",
     "build": "webpack --config webpack.prod.js",
     "heroku-postbuild": "npm run build",
