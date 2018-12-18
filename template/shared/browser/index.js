@@ -1,3 +1,4 @@
+require("@babel/polyfill")
 const hyperdom = require('hyperdom')
 const App = require('./app')
 

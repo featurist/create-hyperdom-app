@@ -2,27 +2,30 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
-    "test": "./node_modules/.bin/electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
+    "test": "electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.jsx?$')",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpackConfig.js",
     "heroku-postbuild": "npm run build",
-    "watch-assets": "webpack --config webpack.dev.js --watch"
+    "watch-assets": "yarn build --watch"
   },
   "dependencies": {
     "@babel/core": "*",
     "@babel/plugin-transform-react-jsx": "*",
+    "@babel/polyfill": "*",
+    "@babel/preset-env": "*",
     "babel-loader": "*",
-    "babel-minify-webpack-plugin": "*",
     "babel-plugin-transform-jsx-hyperdom-binding": "*",
     "css-loader": "*",
     "express": "*",
     "hyperdom": "*",
+    "mini-css-extract-plugin": "*",
     "morgan": "*",
+    "optimize-css-assets-webpack-plugin": "*",
     "style-loader": "*",
+    "uglifyjs-webpack-plugin": "*",
     "webpack": "*",
     "webpack-cli": "*",
-    "webpack-manifest-plugin": "*",
-    "webpack-merge": "*"
+    "webpack-manifest-plugin": "*"
   },
   "devDependencies": {
     "@babel/register": "*",
@@ -41,5 +44,6 @@
     "nodemon": "*",
     "postcss-url": "*",
     "ws": "*"
-  }
+  },
+  "browserslist": "defaults"
 }

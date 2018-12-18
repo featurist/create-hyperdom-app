@@ -28,8 +28,9 @@ fs.copySync(templateDir, appDir)
 
 const sh = new Shell({cwd: appDir})
 
-sh('git init').then(() => {
-  return sh('git add .')
+sh('git init').then(async () => {
+  await sh(`perl -pi -e 's/appName/${appName}/g' README.md`)
+  await sh('git add .')
 }).then(() => {
   console.info('')
   // @ts-ignore
@@ -55,4 +56,7 @@ sh('git init').then(() => {
   console.info('')
   console.info(`  cd ${appDir} && yarn install`)
   console.info('')
+}).catch(e => {
+  console.error(e)
+  process.exit(1)
 })

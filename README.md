@@ -19,41 +19,6 @@ yarn install # npm install
 
 - `--jsx`: use jsx instead of plain js api.
 
-## Usage
-
-### Development
-
-#### `yarn dev`
-
-Starts the server on `http://localhost:5000`. This is going to:
-
-- watch and recompile frontend assets on browser code changes
-- reload browser on frontend assets change
-- watch and restart backend on server side code changes
-- make backend available for debugging in Chrome (via `chrome://inspect`)
-
-#### `yarn lint`
-
-Lints js code based on `eslint:recommended` with few handy extras.
-
-#### `yarn test`
-
-Runs browser tests headlessly in electron. Add `--interactive` to see the browser.
-
-### Production
-
-Make sure `NODE_ENV` is set to `production` when both building assets and starting the server.
-
-#### `yarn build`
-
-Compiles browser assets.
-
-#### `yarn start`
-
-Starts express server.
-
-The app is ready to be pushed to [heroku](https://www.heroku.com/).
-
 ## Contributing
 
 Run tests:

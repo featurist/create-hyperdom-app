@@ -5,9 +5,8 @@ const loadManifest = require('./loadManifest')
 
 function renderIndexHtml () {
   const manifest = loadManifest()
-  const maybeLiveReload = process.env.NODE_ENV !== 'production'
-    ? `<script type="text/javascript" src="/dist/${manifest['liveReload.js']}"></script>`
-    : ''
+  const styles = Object.values(manifest).filter(url => url.match(/\.css$/))
+  const scripts = Object.values(manifest).filter(url => url.match(/\.js$/))
 
   return `
 <!DOCTYPE html>
@@ -16,11 +15,10 @@ function renderIndexHtml () {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My Hyperdom App</title>
+    ${styles.map(url => `<link rel="stylesheet" href="/dist/${url}" />`).join('\n')}
   </head>
   <body>
-    <script type="text/javascript" src="/dist/${manifest['app.js']}"></script>
-    <script type="text/javascript" src="/dist/${manifest['registerServiceWorker.js']}"></script>
-    ${maybeLiveReload}
+    ${scripts.map(url => `<script type="text/javascript" src="/dist/${url}"></script>`).join('\n')}
   </body>
 </html>
   `
