@@ -1,12 +1,6 @@
 {
-  "plugins": [
-    [
-      "@babel/plugin-transform-react-jsx",
-      {
-        "pragma": "hyperdom.jsx"
-      }
-    ],
-    "babel-plugin-transform-jsx-hyperdom-binding"
+  "presets": [
+    "hyperdom"
   ],
   "env": {
     "production": {

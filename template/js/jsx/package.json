@@ -10,11 +10,10 @@
   },
   "dependencies": {
     "@babel/core": "*",
-    "@babel/plugin-transform-react-jsx": "*",
     "@babel/polyfill": "*",
     "@babel/preset-env": "*",
     "babel-loader": "*",
-    "babel-plugin-transform-jsx-hyperdom-binding": "*",
+    "babel-preset-hyperdom": "latest",
     "css-loader": "*",
     "express": "*",
     "hyperdom": "*",

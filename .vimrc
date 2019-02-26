@@ -5,7 +5,7 @@ let g:ale_linters = {
 let g:vigun_commands = [
   \ {
   \   'pattern': '.*Spec.js$',
-  \   'normal': 'DEBUG=create-hyperdom-app:* electron-mocha --renderer',
-  \   'debug': 'DEBUG=create-hyperdom-app:* electron-mocha --interactive --no-timeouts',
+  \   'normal': 'DEBUG=create-hyperdom-app:* ./node_modules/.bin/electron-mocha --renderer',
+  \   'debug': 'DEBUG=create-hyperdom-app:* ./node_modules/.bin/electron-mocha --interactive --no-timeouts',
   \ },
   \]
