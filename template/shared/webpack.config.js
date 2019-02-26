@@ -1,3 +1,5 @@
+/* eslint filenames/match-exported: 0 */
+
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
@@ -34,7 +36,7 @@ const entry = {
 if (mode === 'production') {
   plugins.push(
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: '[name].[contenthash].css',
     }),
   )
 } else {

@@ -4,7 +4,7 @@
     "dev": "nf start",
     "test": "electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.jsx?$')",
-    "build": "webpack --config webpackConfig.js",
+    "build": "webpack",
     "heroku-postbuild": "npm run build",
     "watch-assets": "yarn build --watch"
   },
