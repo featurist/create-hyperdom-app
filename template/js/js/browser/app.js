@@ -1,5 +1,5 @@
 const {html: h} = require('hyperdom')
-const {hello} = require('./style.css')
+const {hello} = require('./styles.css')
 
 module.exports = class App {
   render () {

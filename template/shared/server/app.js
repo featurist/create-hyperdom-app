@@ -37,7 +37,7 @@ module.exports = function () {
     {maxAge: process.env.NODE_ENV === 'production' ? '1y' : 0}
   ))
 
-  app.get('/', (req, res) => {
+  app.get('/*', (req, res) => {
     res.type('html')
     res.send(renderIndexHtml())
   })
