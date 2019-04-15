@@ -8,14 +8,14 @@ const {bin} = require('../package.json')
 const {promises: fs, existsSync: exists} = require('fs')
 const {expect} = require('chai')
 
-const timeout = Number(process.env.TIMEOUT || 60000)
+const timeout = Number(process.env.TIMEOUT || 10000)
 
 const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
   ? 'yarn create hyperdom-app'
   : path.resolve(process.cwd(), bin)
 
 async function wait (ms) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     setTimeout(resolve, ms)
   })
 }
@@ -23,7 +23,7 @@ async function wait (ms) {
 describe('yarn create hyperdom-app', function () {
   let sh, tmpDir, pid
 
-  this.timeout(timeout + 5000)
+  this.timeout(timeout + 1000)
 
   afterEach(async function () {
     if (pid) {
@@ -37,7 +37,9 @@ describe('yarn create hyperdom-app', function () {
     const cacheDir = `${__dirname}/cached_node_modules/${cacheKey}`
 
     describe(opts.length ? `with opts: "${opts.join(' ')}"` : 'with default options', function () {
-      before(async () => {
+      before(async function () {
+        this.timeout(timeout + 90000)
+
         tmpDir = new TmpDir()
         sh = new Shell({cwd: tmpDir.path})
 
@@ -82,6 +84,12 @@ describe('yarn create hyperdom-app', function () {
       })
 
       it('reloads browser when frontend code changes', async function () {
+        this.timeout(2 * timeout + 5000)
+
+        // this is to make sure webpack finished generating the initial bundle before we open the page
+        // because if it didn't, the page won't load liveReload.js
+        await sh('yarn build')
+
         pid = await sh('yarn dev', {bg: true})
 
         let page
@@ -90,12 +98,11 @@ describe('yarn create hyperdom-app', function () {
           await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
         }, {timeout, interval: 500})
 
+        // allow liveReload.js to establish ws connection
         await wait(5000)
-        await sh("perl -pi -e 's/dom!/doom!/' browser/app.js*")
+        await sh("perl -pi -e 's/dom!/doom!/' browser/app.*s*")
 
-        await retry(async () => {
-          await page.shouldHave({text: 'HELLO FROM HYPERDOOM!'})
-        }, {timeout})
+        await page.shouldHave({text: 'HELLO FROM HYPERDOOM!', timeout})
       })
 
       it('tests', async function () {
@@ -131,6 +138,12 @@ describe('yarn create hyperdom-app', function () {
     it('generates jsx', async function () {
       const index = await fs.readFile(`${sh.cwd}/browser/app.jsx`, 'utf-8')
       expect(index).to.include('return <h1 class={hello}>Hello from Hyperdom!</h1>')
+    })
+  })
+  describeCreateHyperdomApp(['--tsx'], function () {
+    it('generates tsx', async function () {
+      const index = await fs.readFile(`${sh.cwd}/browser/app.tsx`, 'utf-8')
+      expect(index).to.include('return <h1 className={hello}>Hello from Hyperdom!</h1>')
     })
   })
 })
