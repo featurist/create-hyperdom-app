@@ -1,5 +1,3 @@
-/* eslint filenames/match-exported: 0 */
-
 const webpack = require('webpack')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
