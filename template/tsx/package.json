@@ -1,0 +1,47 @@
+{
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "dev": "nf start",
+    "test": "electron-mocha -r ./test/support/css-modules-require-hook.js -r ts-node/register --renderer ./test/browser/**/*Spec.ts",
+    "lint": "eslint $(git ls-files | grep -E '\\.tsx?$')",
+    "build": "webpack",
+    "heroku-postbuild": "npm run build",
+    "watch-assets": "yarn build --watch"
+  },
+  "dependencies": {
+    "@types/express": "latest",
+    "@types/morgan": "latest",
+    "@types/ws": "latest",
+    "css-loader": "latest",
+    "express": "latest",
+    "hyperdom": "latest",
+    "mini-css-extract-plugin": "latest",
+    "morgan": "latest",
+    "optimize-css-assets-webpack-plugin": "latest",
+    "style-loader": "latest",
+    "ts-loader": "latest",
+    "ts-node": "latest",
+    "typescript": "latest",
+    "uglifyjs-webpack-plugin": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-manifest-plugin": "latest",
+    "ws": "latest"
+  },
+  "devDependencies": {
+    "@types/mocha": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "browser-monkey": "latest",
+    "chai": "latest",
+    "chokidar": "latest",
+    "css-modules-require-hook": "latest",
+    "electron": "latest",
+    "electron-mocha": "latest",
+    "eslint": "latest",
+    "foreman": "latest",
+    "mocha": "latest",
+    "postcss-url": "latest",
+    "ts-node-dev": "latest"
+  },
+  "browserslist": "defaults"
+}

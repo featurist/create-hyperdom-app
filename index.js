@@ -5,6 +5,7 @@ const path = require('path')
 const {green, cyan} = require('colors/safe')
 const argv = require('yargs')
   .boolean('jsx')
+  .boolean('tsx')
   .demandCommand(1)
   .argv
 const Shell = require('./shell')
@@ -13,18 +14,18 @@ const appName = argv._[0]
 const appDir = path.resolve(process.cwd(), appName)
 fs.ensureDirSync(appDir)
 
-const sharedTemplateDir = path.resolve(__dirname, 'template', 'shared')
-fs.copySync(sharedTemplateDir, appDir)
-fs.renameSync(`${appDir}/_gitignore`, `${appDir}/.gitignore`)
-
 let templateDir
-if (argv.jsx) {
-  templateDir = path.resolve(__dirname, 'template', 'js', 'jsx')
+if (argv.tsx) {
+  templateDir = path.resolve(__dirname, 'template', 'tsx')
 } else {
-  templateDir = path.resolve(__dirname, 'template', 'js', 'js')
+  const sharedTemplateDir = path.resolve(__dirname, 'template', 'js', 'shared')
+  fs.copySync(sharedTemplateDir, appDir)
+
+  templateDir = path.resolve(__dirname, 'template', 'js', argv.jsx ? 'jsx' : 'js')
 }
 
 fs.copySync(templateDir, appDir)
+fs.renameSync(`${appDir}/_gitignore`, `${appDir}/.gitignore`)
 
 const sh = new Shell({cwd: appDir})
 
