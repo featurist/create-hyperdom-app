@@ -84,7 +84,7 @@ describe('yarn create hyperdom-app', function () {
       })
 
       it('reloads browser when frontend code changes', async function () {
-        this.timeout(2 * timeout + 3000)
+        this.timeout(2 * timeout + 5000)
 
         // this is to make sure webpack finished generating the initial bundle before we open the page
         // because if it didn't, the page won't load liveReload.js
@@ -99,7 +99,7 @@ describe('yarn create hyperdom-app', function () {
         }, {timeout, interval: 500})
 
         // allow liveReload.js to establish ws connection
-        await wait(3000)
+        await wait(5000)
         await sh("perl -pi -e 's/dom!/doom!/' browser/app.*s*")
 
         await page.shouldHave({text: 'HELLO FROM HYPERDOOM!', timeout})
