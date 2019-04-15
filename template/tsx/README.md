@@ -1,8 +1,8 @@
-# balls
+# appName
 
 ## Description
 
-This is balls.
+This is appName.
 
 ## Usage
 
