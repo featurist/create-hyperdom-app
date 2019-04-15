@@ -17,8 +17,8 @@ yarn install # npm install
 
 ### Options
 
-- `--jsx`: use jsx instead of plain js api.
-- `--tsx`: use typescript with tsx instead of plain js api.
+- `--jsx`: generate jsx project instead of the default js one.
+- `--tsx`: generate typescript project with tsx.
 
 ## Contributing
 
