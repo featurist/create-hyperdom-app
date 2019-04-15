@@ -39,7 +39,7 @@
     "eslint-plugin-import": "latest",
     "foreman": "latest",
     "mocha": "latest",
-    "nodemon": "latest",
+    "node-dev": "latest",
     "postcss-url": "latest",
     "ws": "latest"
   },
