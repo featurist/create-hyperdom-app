@@ -23,7 +23,7 @@ async function wait (ms) {
 describe('yarn create hyperdom-app', function () {
   let sh, tmpDir, pid
 
-  this.timeout(timeout + 1000)
+  this.timeout(0)
 
   afterEach(async function () {
     if (pid) {
@@ -38,8 +38,6 @@ describe('yarn create hyperdom-app', function () {
 
     describe(opts.length ? `with opts: "${opts.join(' ')}"` : 'with default options', function () {
       before(async function () {
-        this.timeout(timeout + 90000)
-
         tmpDir = new TmpDir()
         sh = new Shell({cwd: tmpDir.path})
 
@@ -84,8 +82,6 @@ describe('yarn create hyperdom-app', function () {
       })
 
       it('reloads browser when frontend code changes', async function () {
-        this.timeout(2 * timeout + 5000)
-
         // this is to make sure webpack finished generating the initial bundle before we open the page
         // because if it didn't, the page won't load liveReload.js
         await sh('yarn build')
