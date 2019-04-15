@@ -14,6 +14,12 @@ const yarnCreateHyperdomApp = process.env.TEST_NPM_MODULE
   ? 'yarn create hyperdom-app'
   : path.resolve(process.cwd(), bin)
 
+async function wait (ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, ms)
+  })
+}
+
 describe('yarn create hyperdom-app', function () {
   let sh, tmpDir, pid
 
@@ -78,9 +84,12 @@ describe('yarn create hyperdom-app', function () {
       })
 
       it('reloads browser when frontend code changes', async function () {
-        this.timeout(2 * timeout)
+        this.timeout(2 * timeout + 3000)
 
-        await sh('yarn build') // this is to make sure webpack finished generating the initial bundle before we open the page
+        // this is to make sure webpack finished generating the initial bundle before we open the page
+        // because if it didn't, the page won't load liveReload.js
+        await sh('yarn build')
+
         pid = await sh('yarn dev', {bg: true})
 
         let page
@@ -89,6 +98,8 @@ describe('yarn create hyperdom-app', function () {
           await page.shouldHave({text: 'HELLO FROM HYPERDOM!'})
         }, {timeout, interval: 500})
 
+        // allow liveReload.js to establish ws connection
+        await wait(3000)
         await sh("perl -pi -e 's/dom!/doom!/' browser/app.*s*")
 
         await page.shouldHave({text: 'HELLO FROM HYPERDOOM!', timeout})
