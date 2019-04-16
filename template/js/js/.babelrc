@@ -1,11 +1,12 @@
 {
+  "sourceType": "script",
   "env": {
     "production": {
       "presets": [
         [
           "@babel/preset-env",
           {
-            "useBuiltIns": "entry",
+            "useBuiltIns": "usage",
             "corejs": 3
           }
         ]

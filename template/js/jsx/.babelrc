@@ -1,4 +1,5 @@
 {
+  "sourceType": "script",
   "presets": [
     "hyperdom"
   ],
@@ -8,7 +9,7 @@
         [
           "@babel/preset-env",
           {
-            "useBuiltIns": "entry",
+            "useBuiltIns": "usage",
             "corejs": 3
           }
         ]

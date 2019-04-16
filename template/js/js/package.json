@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@babel/core": "latest",
-    "@babel/polyfill": "7.4.0",
     "@babel/preset-env": "latest",
     "babel-loader": "latest",
     "css-loader": "latest",
