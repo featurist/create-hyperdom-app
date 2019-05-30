@@ -6,7 +6,6 @@
     "jsx": "react",
     "jsxFactory": "hyperdom.jsx",
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
     "target": "ES6",
     "strict": true,
     "noUnusedLocals": true,
