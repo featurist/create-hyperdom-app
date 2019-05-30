@@ -14,6 +14,7 @@
     "@babel/preset-env": "latest",
     "babel-loader": "latest",
     "babel-preset-hyperdom": "latest",
+    "core-js": "^3",
     "css-loader": "latest",
     "express": "latest",
     "hyperdom": "latest",
