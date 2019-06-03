@@ -5,6 +5,7 @@
     "dev": "nf start",
     "test": "electron-mocha -r ./test/support/css-modules-require-hook.js --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.js$')",
+    "ci": "yarn lint && yarn test",
     "build": "webpack",
     "heroku-postbuild": "npm run build",
     "watch-assets": "yarn build --watch"

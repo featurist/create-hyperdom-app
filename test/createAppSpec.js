@@ -109,6 +109,10 @@ describe('yarn create hyperdom-app', function () {
         await sh('yarn lint')
       })
 
+      it('has ci task', async function () {
+        await sh('yarn ci')
+      })
+
       // 'production' should be the last context (because it removes dev npm modules)
       context('production', function () {
         before(async function () {

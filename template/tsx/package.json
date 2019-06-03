@@ -2,8 +2,9 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
-    "test": "electron-mocha -r ./test/support/css-modules-require-hook.js -r ts-node/register --renderer ./test/browser/**/*Spec.ts",
+    "test": "TS_NODE_FILES=true electron-mocha --color -r ./test/support/css-modules-require-hook.js -r ts-node/register --renderer ./test/browser/**/*Spec.ts",
     "lint": "eslint $(git ls-files | grep -E '\\.tsx?$')",
+    "ci": "yarn lint && tsc --noEmit && yarn test",
     "build": "webpack",
     "heroku-postbuild": "npm run build",
     "watch-assets": "yarn build --watch"
