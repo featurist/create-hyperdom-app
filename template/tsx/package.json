@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/mocha": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
     "browser-monkey": "latest",
     "chai": "latest",
     "css-modules-require-hook": "latest",
