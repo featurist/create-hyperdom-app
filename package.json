@@ -1,6 +1,6 @@
 {
   "name": "create-hyperdom-app",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "hyperdom starter kit",
   "main": "index.js",
   "bin": "index.js",
