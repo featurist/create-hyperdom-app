@@ -6,7 +6,7 @@
   "bin": "index.js",
   "repository": "github:featurist/create-hyperdom-app",
   "scripts": {
-    "test": "DEBUG=create-hyperdom-app:* electron-mocha --renderer test/createAppSpec.js",
+    "test": "DEBUG=create-hyperdom-app:* electron-mocha --color --disable-site-isolation-trials --renderer test/createAppSpec.js",
     "lint": "eslint --ignore-path .gitignore index.js test",
     "ci": "yarn lint && yarn test"
   },
@@ -17,8 +17,8 @@
     "@types/mocha": "^5.2.5",
     "browser-monkey": "^2.7.2",
     "chai": "^4.2.0",
-    "electron": "^3.0.10",
-    "electron-mocha": "^6.0.4",
+    "electron": "^5.0.2",
+    "electron-mocha": "^8.0.2",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
