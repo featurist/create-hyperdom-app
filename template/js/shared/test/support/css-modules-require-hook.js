@@ -1,13 +1,12 @@
-const hook = require('css-modules-require-hook')
-const {remote} = require('electron')
+require('asset-require-hook')({
+  extensions: ['png', 'svg', 'gif', 'jpg'],
+  limit: 0 // `limit: 0` turns on data URI mode
+})
 
-const root = remote.app.getAppPath()
-
-hook({
-  rootDir: root,
+require('css-modules-require-hook')({
   append: [
     require('postcss-url')({
-      url: 'inline' // TODO: see if this works
+      url: 'inline'
     })
   ],
   processCss: function (css) {

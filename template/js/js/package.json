@@ -17,6 +17,7 @@
     "core-js": "^3",
     "css-loader": "latest",
     "express": "latest",
+    "file-loader": "latest",
     "hyperdom": "latest",
     "mini-css-extract-plugin": "latest",
     "morgan": "latest",
@@ -28,6 +29,7 @@
     "webpack-manifest-plugin": "latest"
   },
   "devDependencies": {
+    "asset-require-hook": "latest",
     "browser-monkey": "latest",
     "chai": "latest",
     "chokidar": "latest",
