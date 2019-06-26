@@ -3,7 +3,7 @@
   "scripts": {
     "start": "./scripts/start.sh",
     "dev": "nf start",
-    "test": "electron-mocha -r @babel/register -r ./test/support/css-modules-require-hook.js --color --disable-site-isolation-trials --renderer ./test/browser/**/*Spec.js",
+    "test": "electron-mocha -r @babel/register -r ./test/support/electron-require-hooks.js --color --disable-site-isolation-trials --renderer ./test/browser/**/*Spec.js",
     "lint": "eslint $(git ls-files | grep -E '\\.jsx?$')",
     "ci": "yarn lint && yarn test",
     "build": "webpack",
