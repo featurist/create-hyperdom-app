@@ -1,13 +1,14 @@
-const hook = require('css-modules-require-hook')
-const {remote} = require('electron')
+require('ts-node/register')
 
-const root = remote.app.getAppPath()
+require('asset-require-hook')({
+  extensions: ['png', 'svg', 'gif', 'jpg'],
+  limit: 0 // `limit: 0` turns on data URI mode
+})
 
-hook({
-  rootDir: root,
+require('css-modules-require-hook')({
   append: [
     require('postcss-url')({
-      url: 'inline' // TODO: see if this works
+      url: 'inline'
     })
   ],
   processCss: function (css) {

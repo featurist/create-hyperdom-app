@@ -143,7 +143,7 @@ describe('yarn create hyperdom-app', function () {
   describeCreateHyperdomApp(['--tsx'], function () {
     it('generates tsx', async function () {
       const index = await fs.readFile(`${sh.cwd}/browser/app.tsx`, 'utf-8')
-      expect(index).to.include('return <h1 className={hello}>Hello from Hyperdom!</h1>')
+      expect(index).to.include('<h1 className={hello}>Hello from Hyperdom!</h1>')
     })
   })
 })
