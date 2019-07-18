@@ -1,7 +1,6 @@
 import * as hyperdom from 'hyperdom'
 import {hello} from './styles.css'
-// don't convert to import - it won't work in electron tests
-const logo = require('./hyperdom.png')
+import logo from './hyperdom.png'
 
 export default class App extends hyperdom.RenderComponent {
   public render () {

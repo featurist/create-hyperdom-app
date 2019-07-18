@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "lib": ["dom"],
-    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "module": "CommonJS",
     "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "hyperdom.jsx",

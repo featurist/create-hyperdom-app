@@ -1,6 +1,6 @@
 import * as http from 'http'
-import * as express from 'express'
-import * as morgan from 'morgan'
+import express from 'express'
+import morgan from 'morgan'
 import loadManifest from './loadManifest'
 import LiveReload from './liveReload'
 
