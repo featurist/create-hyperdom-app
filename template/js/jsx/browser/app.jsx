@@ -1,8 +1,8 @@
-const hyperdom = require('hyperdom')
-const {hello} = require('./styles.css')
-const logo = require('./hyperdom.png')
+import hyperdom from 'hyperdom'
+import {hello} from './styles.css'
+import logo from './hyperdom.png'
 
-module.exports = class App {
+export default class App {
   render () {
     return (
       <main>

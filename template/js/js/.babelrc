@@ -1,5 +1,4 @@
 {
-  "sourceType": "script",
   "env": {
     "production": {
       "presets": [
