@@ -13,9 +13,9 @@
   "author": "Artem Avetisyan",
   "license": "MIT",
   "devDependencies": {
-    "@types/colors": "^1.2.1",
+    "@types/colors": "latest",
     "@types/mocha": "latest",
-    "browser-monkey": "^2.7.2",
+    "browser-monkey": "^2.11.0",
     "chai": "latest",
     "electron": "latest",
     "electron-mocha": "latest",
@@ -30,9 +30,9 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "colors": "^1.3.2",
+    "colors": "^1.4.0",
     "debug": "^4.1.0",
-    "fs-extra": "^7.0.1",
-    "yargs": "^12.0.5"
+    "fs-extra": "^9.0.1",
+    "yargs": "^15.4.1"
   }
 }
