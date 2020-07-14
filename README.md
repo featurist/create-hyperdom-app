@@ -4,7 +4,7 @@
 
 Build Type | Status
 ------|------
-Push to master | [![Build Status](https://artemave.semaphoreci.com/projects/create-hyperdom-app.svg)](https://artemave.semaphoreci.com/badges/create-hyperdom-app)
+Push to master | [![Build Status](https://artemave.semaphoreci.com/badges/create-hyperdom-app.svg)](https://artemave.semaphoreci.com/projects/create-hyperdom-app)
 Latest `create-hyperdom-app` npm module against latest dependencies (runs daily) | [![Build Status](https://travis-ci.org/featurist/create-hyperdom-app.svg?branch=master)](https://travis-ci.org/featurist/create-hyperdom-app)
  
 ## Creating new app
