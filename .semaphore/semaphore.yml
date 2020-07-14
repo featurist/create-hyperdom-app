@@ -10,9 +10,7 @@ blocks:
       jobs:
         - name: run tests
           commands:
-            - '# Use your language version'
             - sem-version node 14.5
             - checkout
             - yarn install
-            - '# Run unit tests'
             - yarn ci
