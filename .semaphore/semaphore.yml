@@ -12,5 +12,6 @@ blocks:
           commands:
             - '# Use your language version'
             - sem-version node 14.5
+            - checkout
             - '# Run unit tests'
             - yarn ci
