@@ -6,7 +6,7 @@
   "bin": "index.js",
   "repository": "github:featurist/create-hyperdom-app",
   "scripts": {
-    "test": "DEBUG=create-hyperdom-app:* electron-mocha --color --disable-site-isolation-trials --renderer test/createAppSpec.js",
+    "test": "DEBUG=create-hyperdom-app:*,meshell electron-mocha --color --disable-site-isolation-trials --renderer test/createAppSpec.js",
     "lint": "eslint --ignore-path .gitignore index.js test",
     "ci": "yarn lint && yarn test"
   },
@@ -33,6 +33,7 @@
     "colors": "^1.4.0",
     "debug": "^4.1.0",
     "fs-extra": "^9.0.1",
+    "meshell": "^2.0.1",
     "yargs": "^15.4.1"
   }
 }

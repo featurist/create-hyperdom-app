@@ -8,7 +8,7 @@ const argv = require('yargs')
   .boolean('tsx')
   .demandCommand(1)
   .argv
-const Shell = require('./shell')
+const Shell = require('meshell')
 
 const appName = argv._[0]
 const appDir = path.resolve(process.cwd(), appName)

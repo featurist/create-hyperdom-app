@@ -1,7 +1,7 @@
 const path = require('path')
 const browse = require('browser-monkey/iframe')
 const retry = require('trytryagain')
-const Shell = require('../shell')
+const Shell = require('meshell')
 const TmpDir = require('./tmpDir')
 const {bin} = require('../package.json')
 // @ts-ignore

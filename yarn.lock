@@ -1467,6 +1467,11 @@ matcher@^3.0.0:
   dependencies:
     escape-string-regexp "^4.0.0"
 
+meshell@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/meshell/-/meshell-2.0.1.tgz#8568913f396d4a72bacb39c8f561626b471acc8c"
+  integrity sha512-8Y91t0rhj5VAssuO3Hz+ZD97xriFcnLegG1bzS/v4UoOMnkQ33eXFGuNOjoBdOUSVj8Ayega5zUxHGAZxlwAbg==
+
 mimic-response@^1.0.0, mimic-response@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
