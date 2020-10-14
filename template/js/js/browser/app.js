@@ -1,6 +1,8 @@
 const {html: h} = require('hyperdom')
-const {hello} = require('./styles.css')
-const logo = require('./hyperdom.png')
+// This is because we require css/png differently (not via webpack) in electron tests
+// and the latter generates cjs modules, whereas the former is es6.
+const {hello} = require('./styles.css').default || require('./styles.css')
+const logo = require('./hyperdom.png').default || require('./hyperdom.png')
 
 module.exports = class App {
   render () {
