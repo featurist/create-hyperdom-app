@@ -43,7 +43,7 @@
     "foreman": "latest",
     "mocha": "latest",
     "node-dev": "latest",
-    "postcss-url": "latest",
+    "postcss-url": "^8.0.0",
     "ws": "latest"
   },
   "browserslist": "defaults"

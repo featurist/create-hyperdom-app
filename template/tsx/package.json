@@ -44,7 +44,7 @@
     "eslint": "latest",
     "foreman": "latest",
     "mocha": "latest",
-    "postcss-url": "latest",
+    "postcss-url": "^8.0.0",
     "ts-node-dev": "latest"
   },
   "browserslist": "defaults"
