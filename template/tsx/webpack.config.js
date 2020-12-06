@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const ManifestPlugin = require('webpack-manifest-plugin')
+const { ManifestPlugin } = require('webpack-manifest-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
