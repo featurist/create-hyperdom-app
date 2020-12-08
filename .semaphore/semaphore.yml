@@ -4,13 +4,17 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/node:14-browsers'
 blocks:
   - name: test
     task:
+      prologue:
+        commands:
+          - checkout
+          - yarn install
       jobs:
         - name: run tests
           commands:
-            - sem-version node 14.5
-            - checkout
-            - yarn install
             - yarn ci
