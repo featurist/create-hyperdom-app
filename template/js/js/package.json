@@ -24,7 +24,7 @@
     "optimize-css-assets-webpack-plugin": "latest",
     "style-loader": "latest",
     "uglifyjs-webpack-plugin": "latest",
-    "webpack": "^4.44.2",
+    "webpack": "latest",
     "webpack-cli": "latest",
     "webpack-manifest-plugin": "latest"
   },
