@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const { ManifestPlugin } = require('webpack-manifest-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -10,7 +10,7 @@ const mode = process.env.NODE_ENV === 'production'
   : 'development'
 
 const plugins = [
-  new ManifestPlugin(),
+  new WebpackManifestPlugin(),
   new webpack.EnvironmentPlugin({
     NODE_ENV: mode,
     DEBUG: false
