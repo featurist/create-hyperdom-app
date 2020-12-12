@@ -27,6 +27,7 @@ function renderIndexHtml (): String {
 
 module.exports = function () {
   const app = express()
+  // @ts-ignore
   app.use(morgan('dev'))
 
   app.get('/service-worker.js', (_, res) => {
