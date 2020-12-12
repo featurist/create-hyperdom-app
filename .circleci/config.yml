@@ -1,0 +1,9 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/node:15.4.0-browsers
+    steps:
+      - checkout
+      - run: yarn install
+      - run: TIMEOUT=25000 yarn test
