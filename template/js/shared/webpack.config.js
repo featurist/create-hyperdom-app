@@ -48,6 +48,7 @@ const webpackConfig = {
   devtool,
   entry,
   output: {
+    publicPath: '',
     filename,
     path: path.resolve(__dirname, 'browser', 'dist')
   },
